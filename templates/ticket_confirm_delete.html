@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Ticket</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Background black */
+            color: #fff; /* Text color white */
+        }
+        header, footer {
+            background-color: #000; /* Header black */
+            color: #fff; /* Header text white */
+            text-align: center;
+            padding: 10px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #333; /* Dark grey for container */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Light shadow */
+        }
+        .button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #ff8a80; /* Lighter red on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Delete Ticket</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <p>Are you sure you want to delete "{{ ticket.title }}"?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="button">Confirm Delete</button>
+                <a href="{% url 'ticket-list' %}" class="button">Cancel</a>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

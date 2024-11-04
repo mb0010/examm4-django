@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <style>
+        /* Basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000; /* Background black */
+            color: #fff; /* Text color white */
+        }
+        header, footer {
+            background-color: #000; /* Header black */
+            color: #fff; /* Header text white */
+            text-align: center;
+            padding: 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #333; /* Dark grey for container */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Light shadow */
+        }
+        .button {
+            background-color: black;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .button:hover {
+            background-color: black;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #fff;
+            text-align: left;
+        }
+        th {
+            background-color: #444; /* Darker header */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Order List</h1>
+    </header>
+
+    <main>
+        <div class="container">
+            <a href="{% url 'order-create' %}" class="button">Add New Order</a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Film</th>
+                        <th>User</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>{{ order.film.title }}</td>
+                        <td>{{ order.user.username }}</td>
+                        <td>
+                            <a href="{% url 'order-update' order.pk %}" class="button">Edit</a>
+                            <a href="{% url 'order-delete' order.pk %}" class="button">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>

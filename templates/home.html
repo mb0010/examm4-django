@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    {% load static %}
+    <style>
+        /* Танзимоти асосӣ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Фон сафед */
+            color: #000000; /* Ранги матн сиёҳ */
+            line-height: 1.6;
+        }
+
+        /* Сарлавҳа */
+        header {
+            background-color: #000000; /* Сарлавҳаи сиёҳ */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 0.5em;
+        }
+
+        /* Қисмати Асосӣ ва Тавсифи Сайт */
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #ffffff; /* Фон сафед */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .description {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            color: #333; /* Ранги матн дар тавсиф */
+        }
+
+        /* Навигация ва Тугмаҳо */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .button {
+            display: block;
+            width: 100%;
+            background: #000000; /* Тугмаи сиёҳ */
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            background: #333333; /* Ранги сиёҳи тира ҳангоми hover */
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Сурат */
+        .image-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Пойафзол */
+        footer {
+            background-color: #000000; /* Пойафзол сиёҳ */
+            color: #f5f5f5; /* Ранги матн сафед */
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Home Page</h1>
+        <p>This page contains the main sections of the application.</p>
+    </header>
+
+    <main>
+        <div class="description">
+            <p>This website is designed for managing users, films, tickets, and orders. You can easily add or edit users, manage new films and tickets, and oversee customer orders.</p>
+        </div>
+
+        <div class="image-container">
+            <img src="{% static 'images/losos.png' %}" alt="Venom Movie Poster">
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="{% url 'user-list' %}" class="button">Manage Users</a></li>
+                <li><a href="{% url 'film-list' %}" class="button">Manage Films</a></li>
+                <li><a href="{% url 'ticket-list' %}" class="button">Manage Tickets</a></li>
+                <li><a href="{% url 'order-list' %}" class="button">Manage Orders</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
